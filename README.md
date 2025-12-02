@@ -1,10 +1,3 @@
-下面是一份 **可以直接复制粘贴到 GitHub 的 README.md**（已完全 Markdown 化，无需任何修改即可使用）。
-内容包括：简介、特性、目录结构、使用示例、Baseline、Synthetic Data、引用方式等，整体风格参考 SubTab 项目。
-
----
-
-# README.md（可直接复制）
-
 ````markdown
 # TabPFN-Cluster: Clustering with Pretrained Tabular Foundation Models
 
