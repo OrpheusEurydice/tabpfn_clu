@@ -1,7 +1,5 @@
+## TabPFN_Clu
 ````markdown
-
-## TabPFN_clu
-
 # TabPFN_Clu: Clustering with Pretrained Tabular Foundation Models
 
 This repository provides the official implementation for the paper:
