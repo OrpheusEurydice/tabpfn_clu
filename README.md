@@ -1,7 +1,7 @@
 ## TabPFN_Clu
 Author: Li Peiwen(202422407020@email.sxu.edu.cn)  
 The official implementation for the paper,  
-“Clustering Method for Tabular Data Based on Pretrained Foundation Models with Synthetic Data.”
+[“Clustering Method for Tabular Data Based on Pretrained Foundation Models with Synthetic Data.”](https://crad.ict.ac.cn/article/doi/10.7544/issn1000-1239.202550405)
 
 ## Environment
 
