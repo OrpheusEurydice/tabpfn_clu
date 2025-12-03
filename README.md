@@ -16,7 +16,7 @@ Python == 3.12 and a CUDA GPU are recommended.
 
 ---
 
-## 📁 Project Structure
+## 📁 Structure of the repo
 
 ```
 tabpfn/
@@ -43,7 +43,7 @@ tabpfn/
 
 ## 🚀 Quick Start
 
-### 1. cluster with model
+### 1. cluster with the model
 
 ```python
 from PFN2_2 import custom_clustering
