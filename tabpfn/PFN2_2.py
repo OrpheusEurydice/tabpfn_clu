@@ -13,7 +13,6 @@ from sklearn.preprocessing import StandardScaler
 from tabpfn import TabPFNClassifier
 import matplotlib.pyplot as plt
 
-from ap_implementation import ap, merge_small_clusters, robust_ap_clustering
 from ap_gpt import apgpt
 from bpc_implementation import border_peeling_clustering, optimized_bpc_search
 from dp_implementation import cluster_dp_k
@@ -241,5 +240,6 @@ def custom_clustering(data, k, data_all=None, clustering_method = 'kmeans', max_
         # 如果聚类结果一致，则停止迭代
         if np.array_equal(previous_labels, predictions) or flag > max_epoch:
             break
+
 
     return predictions, accuracies, nmi, ari
