@@ -1,12 +1,8 @@
 ## TabPFN_Clu
 ````markdown
-# TabPFN_Clu: Clustering with Pretrained Tabular Foundation Models
-
-This repository provides the official implementation for the paper:
-
-**Li, Peiwen. “Clustering Method for Tabular Data Based on Foundation Models Pretrained with Synthetic Data.” Computer Research & Development (Data-Centric Computing Special Issue), 2025.**
-
-This project extends **TabPFN v2**, leveraging pretrained tabular foundation models and **nearest-neighbor–aware clustering constraints** to boost structure discovery in tabular datasets.
+Author: Li Peiwen(202422407020@email.sxu.edu.cn)
+The official implementation for the paper,
+“Clustering Method for Tabular Data Based on Pretrained Foundation Models with Synthetic Data.”
 ---
 
 ## Environment
@@ -77,18 +73,16 @@ run synthetic_datasets1.py # generate multiple types of clusters
 
 If you use this repository in your research, please cite:
 
-**Peiwen Li.**
-*Clustering Method for Tabular Data Based on Foundation Models Pretrained with Synthetic Data.*
-Computer Research & Development, Data-Centric Computing Special Issue, 2025.
-DOI: **10.7544/issn1000-1239.202550405**
+Li Peiwen, Li Feijiang, Wang Jieting, Qian Yuhua. Clustering Method for Tabular Data Based on Pretrained Foundation Models with Synthetic Data[J]. Journal of Computer Research and Development, 2025, 62(9): 2139-2151. DOI: 10.7544/issn1000-1239.202550405
 
 ### BibTeX
 
 ```bibtex
 @article{Li2025TabPFNCluster,
-  title     = {Clustering Method for Tabular Data Based on Foundation Models Pretrained with Synthetic Data},
-  author    = {Li, Peiwen},
-  journal   = {Computer Research & Development},
+  title     = {Clustering Method for Tabular Data Based on Pretrained Foundation Models with Synthetic Data},
+  author    = {Li Peiwen, Li Feijiang, Wang Jieting, Qian Yuhua},
+  journal   = {Journal of Computer Research and Development},
+  volume    = {62},
   year      = {2025},
   doi       = {10.7544/issn1000-1239.202550405}
 }
