@@ -6,31 +6,17 @@ This repository provides the official implementation for the paper:
 
 **Li, Peiwen. “Clustering Method for Tabular Data Based on Foundation Models Pretrained with Synthetic Data.” Computer Research & Development (Data-Centric Computing Special Issue), 2025.**
 
-This project extends **TabPFN v2**, leveraging pretrained tabular foundation models and **nearest-neighbor–aware clustering constraints** to boost structure discovery in tabular datasets. It provides a complete pipeline including feature extraction, clustering, baseline evaluation, synthetic data generation, and visualization.
-
+This project extends **TabPFN v2**, leveraging pretrained tabular foundation models and **nearest-neighbor–aware clustering constraints** to boost structure discovery in tabular datasets.
 ---
 
-## 🔥 Key Features
-
-- **TabPFN v2 embeddings** with GPU support
-- **Neighbor-aware clustering constraint**
-- **Unified baseline evaluation** (XGBoost, MLP, Logistic Regression, KNN)
-- **OpenML dataset loader**
-- **Synthetic dataset generation module**
-- **Visualization tools** (t-SNE, cluster plots)
-- **Full reproducibility aligned with the published paper**
-
----
-
-## 📦 Installation
+## Environment
 
 ```bash
 git clone https://github.com/<your_repo>/tabpfn_clu.git
 cd tabpfn_clu
 pip install -r requirements.txt
 ````
-
-Python ≥ 3.10 and a CUDA GPU are recommended.
+Python == 3.12 and a CUDA GPU are recommended.
 
 ---
 
@@ -39,85 +25,52 @@ Python ≥ 3.10 and a CUDA GPU are recommended.
 ```
 tabpfn/
 │
-├── data/                     # Demo datasets (.csv/.mat/.data)
+├── data/                     # Demo datasets (.csv/.mat/.data/.txt),given 5 datas(1.data~5.data) for demo testing
 ├── synthetic_data/           # Synthetic dataset generator
 │   ├── synthetic_datasets.py
 │   ├── synthetic_datasets1.py
 │   └── dataset_plots.py
-│
-├── test_PFN.py               # TabPFN embedding extraction demo
-├── test_PFN_clustering.py    # Clustering with neighbor constraint
-├── test_PFN_plot.py          # Embedding visualization
-├── test_baseline.py          # Baseline evaluation
-├── utils.py                  # KNN, preprocessing, metrics
-└── write.py                  # Logging utility
+├── PFN2_2.py                 # used for contrast experiment
+├── PFN2_2_finetune.py        # used for paraselect
+├── ap_gpt.py                 # implementation of ap clustering
+├── dp_implementation.py      # implementation of dp clustering
+├── fcm_accuracy.py           # evaluation indicator of fcm clustering
+├── gmm_accuracy.py           # evaluation indicator of gmm clustering
+├── kmeans_accuracy.py        # evaluation indicator of kmeans clustering
+├── spectral_accuracy.py      # evaluation indicator of spectral clustering
+├── test_PFN_clustering.py    # demo of contrast experiment
+├── test_PFN_paraselect.py    # demo of paraselect
+└── requirements.txt          # environment configuration
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Extract TabPFN Embeddings
+### 1. cluster with model
 
 ```python
-from tabpfn import extract_pfn_embeddings
-
-X_emb = extract_pfn_embeddings(X_raw)
+from PFN2_2 import custom_clustering
+pred_custom_ap, acc_list5, nmi_list5, ari_list5 = custom_clustering(X_train, k, X, clustering_method='ap',y=y) # based on ap clustering
 ```
-
-### 2. Cluster with Neighbor Constraints
+### 2. conduct contrast experiment
 
 ```python
-from tabpfn import train_cluster_model
-
-model = train_cluster_model(X_emb, k_neighbors=20)
-labels = model.predict(X_emb)
+run test_PFN_clustering.py
 ```
-
-### 3. Evaluate Clustering
+### 3. conduct parameter selection
 
 ```python
-from tabpfn import evaluate_clustering
-
-ari, nmi = evaluate_clustering(labels, y_true)
+run test_PFN_paraselect.py
 ```
-
----
-
-## 📊 Baseline Evaluation (XGBoost / MLP / Logistic / KNN)
-
-```python
-from tabpfn import evaluate_classifier
-
-results = evaluate_classifier(
-    embeddings=X_emb,
-    labels=y,
-    method="mlp",       # options: mlp | xgboost | logistic | knn
-    note="TabPFN feature test"
-)
-print(results)
-```
-
 ---
 
 ## 🧪 Generate Synthetic Datasets
 
 ```python
-from synthetic_data.synthetic_datasets import generate_synthetic_dataset
-
-X, y = generate_synthetic_dataset(type="moons", noise=0.05)
+run synthetic_datasets.py # generate gaussian-like clusters
+run synthetic_datasets1.py # generate multiple types of clusters
 ```
-
----
-
-## 📈 Visualization (t-SNE)
-
-```python
-from tabpfn import plot_embeddings
-
-plot_embeddings(X_emb, labels)
-```
-
 ---
 
 ## 📖 Citation
